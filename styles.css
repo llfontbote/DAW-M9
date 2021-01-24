@@ -1,0 +1,223 @@
+* {
+	box-sizing: border-box;
+	border-collapse: collapse;
+}
+
+body {
+	font-family: 'Montserrat', sans-serif;
+	background-color: #eeeeee;
+	margin: 0;
+	min-height: 100vh;
+	min-width: 100vh;
+	display: grid;
+	grid-template-columns: 18% 67% 15%;
+	grid-template-rows: 200px 1fr 35vmin;
+ } /*display: grid per a fer el layout*/
+
+.header__title, .main__title, .footer__title {
+	font-size: xx-large;
+}
+
+.nav__title, .aside__title, .article__title {
+	font-size: x-large;
+}
+
+.header {
+	grid-column: 1/-1;
+	grid-row: 1/2;
+	background-color: #00adb5;
+}
+	.header__title {
+		font-family: 'Potta One', cursive;
+		text-align: center;
+		margin-top: 50px;
+	}
+
+	.header__subtitle {
+		font-weight: bold;
+		text-align: center;
+	}
+
+	/*Aquí faig una combinació de selectors perquè es demanava a l'enunciat, sinó hauria posat .header__img */
+	/* logo de patrocinador al header */
+	header img {
+		float: left;
+		width: 20%;
+		position: relative;
+		z-index: 1;
+		top: -200px;
+	}
+
+.nav {
+	grid-column: 1/2;
+	grid-row: 2/3;
+}
+
+	.nav__title {
+		position: relative;
+		left: 50px;
+		top: 10px;
+	}
+
+	.list {
+		list-style-type: none;
+		margin: 0 0.5em;
+		padding: 0;
+	}
+
+	.list__item {
+		background-color: #00adb5;
+		max-width: 150px;;
+		margin: 0.1em;
+		padding: 1em 0em;
+		border-radius: 50%;
+		border: solid #393e46;
+		text-align: center;
+	}
+
+	.list__link {
+		color: white;
+		text-decoration: none;
+	}
+
+	.list__link:visited {
+		color: #6930c3;
+	}
+
+	.list__link:hover {
+		color:#393e46;
+	}
+.main {
+	grid-column: 2/3;
+	grid-row: 2/3;
+	display: flex;
+	/* divisió del text en dues columnes:
+	podria haver fet servir column-count: 2, però amb flex
+	ja deixo el terreny preparat per fer-lo responsive i miraré que passi sol a una columna a l'activitat 3*/
+	flex-flow: row wrap;
+	justify-content: space-between;
+}
+	.main__title {
+		min-width: 100%;
+		margin-bottom: 0;
+	}
+	
+	.article {
+		width: 500px;
+	}
+
+		.article__title {
+			width: 100%;
+		}
+
+		 .article__p {
+			max-width: 75%;
+			margin: 0px;
+		} 
+		/* imatge flotant */
+		.article__img {
+			margin: 1em;
+			width: 20%;
+			float: left;
+		}
+
+.aside {
+	grid-column: 3/4;
+	grid-row: 2/3;
+}
+
+	.searchbar-area {
+		margin-top: 30px;
+	}
+
+	.searchbar-area__searchbar {
+		max-width: 95%;
+	}
+
+		.button {
+			background-color: #00adb5;
+			color: white;
+		}
+	/* logos a l'aside */
+	.sponsors__img {
+		width: 100%;
+		margin-bottom: 2.5em;
+	}
+
+.footer {
+	grid-column: 1/-1;
+	grid-row: 3/4;
+	background-color: #00adb5;
+	bottom: 0;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 12% 1fr;
+	grid-column-gap: 1.5em;
+}
+	.footer__title {
+		grid-column: 1/-1;
+		grid-row: 1/2;
+	}
+
+	.form {
+		grid-column: 1/2;
+		grid-row: 2/3;
+		margin-left: 60px;
+		margin-right: 110px;
+	}
+
+		.button--form {
+			background-color: #6930c3;
+			color: white;
+			margin-top: 1em;
+		}
+	
+	/* resultat d'una enquesta */
+	.last-survey {
+		grid-column: 2/3;
+		grid-row: 2/3;
+	}
+
+		.last-survey__question {
+			font-style: italic;
+		}
+
+		.last-survey__percentage {
+			color: #6930c3;
+			border: solid 5px #6930c3;
+			border-radius: 15px;
+			background-color: #6930c3;
+		}
+
+	.social-networks {
+		grid-column: 3/4;
+		grid-row: 2/3;
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: space-around;
+		align-items: center;
+		margin-left: 110px;
+		margin-right: 60px;
+		margin-bottom: 20px;
+	}
+		.social-networks__p {
+			width: 100%;
+		}
+
+		/* botonera de xarxes socials */
+		.button--social {
+			color: white;
+			background-color: #00adb5;
+			border: solid #00adb5;
+			font-size: 30px;
+			width: 20%;
+			margin: 0 2px;
+		}
+			/* ús de pseudoclasses */
+			.button--social:hover {
+				color: #6930c3
+			}
+
+			.button--social:active {
+				color: white;
+			}
