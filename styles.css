@@ -8,11 +8,11 @@ body {
 	background-color: #eeeeee;
 	margin: 0;
 	min-height: 100vh;
-	min-width: 100vh;
+	max-width: 100vw;
 	display: grid;
 	grid-template-columns: 18% 67% 15%;
 	grid-template-rows: 200px 1fr 35vmin;
- } /*display: grid per a fer el layout*/
+ } 
 
 .header__title, .main__title, .footer__title {
 	font-size: xx-large;
@@ -38,8 +38,6 @@ body {
 		text-align: center;
 	}
 
-	/*Aquí faig una combinació de selectors perquè es demanava a l'enunciat, sinó hauria posat .header__img */
-	/* logo de patrocinador al header */
 	header img {
 		float: left;
 		width: 20%;
@@ -91,9 +89,7 @@ body {
 	grid-column: 2/3;
 	grid-row: 2/3;
 	display: flex;
-	/* divisió del text en dues columnes:
-	podria haver fet servir column-count: 2, però amb flex
-	ja deixo el terreny preparat per fer-lo responsive i miraré que passi sol a una columna a l'activitat 3*/
+	margin-left: 3.5em;
 	flex-flow: row wrap;
 	justify-content: space-between;
 }
@@ -103,7 +99,7 @@ body {
 	}
 	
 	.article {
-		width: 500px;
+		width: 50%;
 	}
 
 		.article__title {
@@ -113,8 +109,9 @@ body {
 		 .article__p {
 			max-width: 75%;
 			margin: 0px;
+			margin-bottom: 0.5em;
 		} 
-		/* imatge flotant */
+		
 		.article__img {
 			margin: 1em;
 			width: 20%;
@@ -142,6 +139,9 @@ body {
 	.sponsors__img {
 		width: 100%;
 		margin-bottom: 2.5em;
+	}
+	.header__img--aside {
+		display: none;
 	}
 
 .footer {
@@ -172,7 +172,6 @@ body {
 			margin-top: 1em;
 		}
 	
-	/* resultat d'una enquesta */
 	.last-survey {
 		grid-column: 2/3;
 		grid-row: 2/3;
@@ -204,7 +203,6 @@ body {
 			width: 100%;
 		}
 
-		/* botonera de xarxes socials */
 		.button--social {
 			color: white;
 			background-color: #00adb5;
@@ -213,7 +211,6 @@ body {
 			width: 20%;
 			margin: 0 2px;
 		}
-			/* ús de pseudoclasses */
 			.button--social:hover {
 				color: #6930c3
 			}
@@ -221,3 +218,138 @@ body {
 			.button--social:active {
 				color: white;
 			}
+
+@media screen and (min-width: 577px) and (max-width: 922px) {
+	body {
+		grid-template-rows: 200px 1fr 55vmin;
+	}
+
+	.header__img {
+		top: -130px;
+	}
+
+	.main {
+		margin-left: 7em;
+	}
+
+	/* Els articles passen a una columna */
+	.article {
+		width: 100%;
+	}
+
+	.footer div {
+		margin: 0;
+	}
+}
+
+@media screen and (max-width: 576px) {
+	body {
+		display: flex;
+		flex-direction: column;
+	}
+	.header, .nav, .main, .article, .aside, .footer {
+		width: 100%;
+	}
+	
+	.main__title, .article__title, .searchbar__label, .form__question, .last-survey__p, .social-networks__p, .list {
+		text-align: center;
+	}
+
+	.nav {
+		margin: 2em auto;
+	}
+	
+		.list__item {
+			display: inline;
+			background-color: #00adb5;
+			max-width: 150px;;
+			margin: 0.1em;
+			padding: 1em 0em;
+			border-radius: 50%;
+			border: solid #393e46;
+			text-align: center;
+		}
+	
+		.list__link {
+			color: white;
+			text-decoration: none;
+		}
+	
+		.list__link:visited {
+			color: #6930c3;
+		}
+	
+		.list__link:hover {
+			color:#393e46;
+		}
+
+		.nav__title {
+			display: none;
+		}
+
+
+	/*aside*/
+		.sponsors__img {
+			width: 40%;
+			margin: 0.5em;
+		}
+		.header__img {
+			display: none;
+		}
+		.header__img--aside {
+			display: inline;
+		}
+		.searchbar__label {
+			display: block;
+		}
+
+		.searchbar-area {
+			margin: auto;
+			text-align: center;
+		}
+
+		.searchbar-area__searchbar {
+			height: 35px;
+			margin-top: 0.5em;
+		}
+
+	.main {
+		margin: 0;
+	}
+	
+		.article {
+			margin: 1em;
+		}
+
+		.article__p {
+			max-width: 100%;
+		}
+
+	.footer {
+		width: auto;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	} 
+
+		.form__div {
+			margin-left: 5em;
+		}
+		.button--form {
+			margin-left: 6.5em;
+		}
+
+		.last-survey__percentage, .last-survey__option {
+			margin-left: 7.5em;
+		}
+
+		.social-networks {
+			margin: auto;
+			margin-bottom: 0.5em;
+		}
+
+	button {
+		width: 65px;
+		height: 35px;
+	}
+}
